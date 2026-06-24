@@ -292,9 +292,11 @@ if selected_cluster is not None:
         else:
             # 대표 텍스트 수집
             sub_df = chunk_df[chunk_df['text_cluster'] == selected_cluster]
-            rep_texts = sub_df['chunk_text'].dropna().sample(
-                min(5, len(sub_df)), random_state=42
-            ).tolist()
+            rep_texts = [
+                str(t).encode('utf-8', errors='ignore').decode('utf-8')
+                for t in sub_df['chunk_text'].dropna().sample(
+                    min(5, len(sub_df)), random_state=42).tolist()
+            ]
 
             # 이미지 서브군집 정보
             sub_counts = image_df[
@@ -311,11 +313,13 @@ if selected_cluster is not None:
                 chunk_df['text_cluster'] == selected_cluster
             ]['cej_stage'].iloc[0] if 'cej_stage' in chunk_df.columns else '-'
 
+            cluster_label_clean = str(label_map.get(selected_cluster, '')).encode('utf-8', errors='ignore').decode('utf-8')
+
             with st.spinner("LLM 해석 생성 중..."):
                 result = call_groq(
                     api_key=api_key,
                     cluster_id=selected_cluster,
-                    cluster_label=label_map.get(selected_cluster, ''),
+                    cluster_label=cluster_label_clean,
                     cej_stage=cej,
                     rep_texts=rep_texts,
                     subclusters_info=subclusters_info

@@ -13,7 +13,7 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-.block-container { padding-top: 1.5rem; padding-bottom: 0rem; }
+.block-container { padding-top: 3rem; padding-bottom: 0rem; }
 div[data-testid="metric-container"] { padding: 4px 8px; }
 .stPlotlyChart { margin: 0; padding: 0; }
 h3 { margin-bottom: 4px; }

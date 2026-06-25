@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 import requests
 
 st.set_page_config(
-    page_title="LG CODEZERO 청소기 대시보드",
+    page_title="LG 청소기 대시보드",
     layout="wide",
     initial_sidebar_state="collapsed"
 )

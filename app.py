@@ -13,7 +13,7 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-.block-container { padding-top: 0.5rem; padding-bottom: 0rem; }
+.block-container { padding-top: 1.5rem; padding-bottom: 0rem; }
 div[data-testid="metric-container"] { padding: 4px 8px; }
 .stPlotlyChart { margin: 0; padding: 0; }
 h3 { margin-bottom: 4px; }
@@ -28,19 +28,19 @@ hr { margin: 6px 0; }
     line-height: 1.5;
 }
 .signal-red {
-    background: #fff1f0;
     border-left: 4px solid #E24B4A;
     padding: 8px 12px;
     border-radius: 4px;
     margin-bottom: 6px;
     font-size: 11px;
+    color: var(--text-color);
 }
 .signal-yellow {
-    background: #fffbe6;
     border-left: 4px solid #EF9F27;
     padding: 8px 12px;
     border-radius: 4px;
     font-size: 11px;
+    color: var(--text-color);
 }
 </style>
 """, unsafe_allow_html=True)
